@@ -39,9 +39,7 @@ RUN source $HOME/.cargo/env && \
 
 FROM scratch
 
-COPY --from=builder /gateway-proxy /gateway-proxy
-COPY ./config.json /config.json 
-
-RUN chmod +x /gateway-proxy
+COPY --from=builder --chown=0:0 /gateway-proxy /gateway-proxy
+COPY --from=builder --chown=0:0 ./config.json /config.json
 
 CMD ["/gateway-proxy"]
