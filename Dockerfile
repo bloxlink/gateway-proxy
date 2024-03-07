@@ -35,11 +35,12 @@ RUN source $HOME/.cargo/env && \
         cargo build --release --target="$RUST_TARGET"; \
     fi && \
     cp target/$RUST_TARGET/release/gateway-proxy /gateway-proxy && \
-    strip /gateway-proxy
+    strip /gateway-proxy && \
+    chmod +x /gateway-proxy 
 
-FROM scratch
 
-COPY --from=builder --chown=0:0 /gateway-proxy /gateway-proxy
-COPY --from=builder --chown=0:0 ./config.json /config.json
+COPY --from=builder /gateway-proxy /gateway-proxy
+COPY ./config.json /config.json
 
+# CMD instruction
 CMD ["/gateway-proxy"]
