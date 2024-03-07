@@ -38,6 +38,7 @@ RUN source $HOME/.cargo/env && \
     strip /gateway-proxy && \
     chmod +x /gateway-proxy 
 
+FROM scratch
 
 COPY --from=builder /gateway-proxy /gateway-proxy
 COPY ./config.json /config.json
