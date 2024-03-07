@@ -27,7 +27,6 @@ RUN source $HOME/.cargo/env && \
 
 RUN rm -f target/$RUST_TARGET/release/deps/gateway_proxy*
 COPY ./src ./src
-COPY ./config.json ./src
 
 RUN source $HOME/.cargo/env && \
     if [ "$TARGET_CPU" == 'x86-64' ]; then \
@@ -41,5 +40,6 @@ RUN source $HOME/.cargo/env && \
 FROM scratch
 
 COPY --from=builder /gateway-proxy /gateway-proxy
+COPY --from=builder ./config.json /
 
 CMD ["./gateway-proxy"]
