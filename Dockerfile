@@ -41,5 +41,6 @@ FROM scratch
 
 COPY --from=builder /gateway-proxy /gateway-proxy
 COPY ./config.json /gateway-proxy
+RUN chmod +x gateway-proxy
 
 CMD ["./gateway-proxy"]
