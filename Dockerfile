@@ -15,7 +15,6 @@ WORKDIR /build
 
 COPY Cargo.toml Cargo.lock ./
 COPY .cargo ./.cargo/
-COPY ./config.json /config.json
 
 RUN mkdir src/
 RUN echo 'fn main() {}' > ./src/main.rs
@@ -28,6 +27,7 @@ RUN source $HOME/.cargo/env && \
 
 RUN rm -f target/$RUST_TARGET/release/deps/gateway_proxy*
 COPY ./src ./src
+COPY ./config.json ./src
 
 RUN source $HOME/.cargo/env && \
     if [ "$TARGET_CPU" == 'x86-64' ]; then \
