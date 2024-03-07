@@ -8,7 +8,7 @@ ENV RUST_TARGET "x86_64-unknown-linux-gnu"
 ENV RUSTFLAGS "-Lnative=/usr/lib -C target-cpu=${TARGET_CPU}"
 
 RUN apk upgrade && \
-    apk add curl gcc g++ musl-dev cmake make && \
+    apk add curl gcc g++ musl-dev cmake make gcc-x86-64-linux-gnu && \
     curl -sSf https://sh.rustup.rs | sh -s -- --profile minimal --component rust-src --default-toolchain nightly -y
 
 WORKDIR /build
