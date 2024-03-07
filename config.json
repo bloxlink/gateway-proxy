@@ -1,5 +1,5 @@
 {
-    "log_level": "info",
+    "log_level": "debug",
     "intents": 37381,
     "externally_accessible_url": "ws://0.0.0.0:7878",
     "port": 7878,
