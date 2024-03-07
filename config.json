@@ -2,6 +2,14 @@
     "log_level": "info",
     "token": "",
     "intents": 37381,
+    "externally_accessible_url": "ws://localhost:7878",
+    "port": 7878,
+    "validate_token": true,
+    "status": "online",
+    "activity": {
+        "type": 0,
+        "name": "on shard {{shard}}"
+    },
     "cache": {
         "channels": true,
         "presences": false,
