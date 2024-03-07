@@ -1,6 +1,6 @@
 # I will only support x86_64 hosts because this allows for best hardware optimizations.
 # Compiling a Dockerfile for aarch64 should work but I won't support it myself.
-ARG TARGET_CPU="x86-64"
+ARG TARGET_CPU="haswell"
 
 FROM docker.io/library/alpine:edge AS builder
 ARG TARGET_CPU
@@ -8,7 +8,7 @@ ENV RUST_TARGET "x86_64-unknown-linux-gnu"
 ENV RUSTFLAGS "-Lnative=/usr/lib -C target-cpu=${TARGET_CPU}"
 
 RUN apk upgrade && \
-    apk add curl gcc g++ musl-dev cmake make gcc-x86-64-linux-gnu && \
+    apk add curl gcc g++ musl-dev cmake make && \
     curl -sSf https://sh.rustup.rs | sh -s -- --profile minimal --component rust-src --default-toolchain nightly -y
 
 WORKDIR /build
