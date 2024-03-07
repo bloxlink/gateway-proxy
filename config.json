@@ -1,18 +1,17 @@
 {
     "log_level": "info",
     "token": "",
-    "intents": 32511,
+    "intents": 37381,
     "cache": {
-        "channels": false,
+        "channels": true,
         "presences": false,
         "emojis": false,
-        "current_member": false,
-        "members": false,
-        "roles": false,
-        "scheduled_events": false,
+        "current_member": true,
+        "members": true,
+        "roles": true,
         "stage_instances": false,
         "stickers": false,
-        "users": false,
+        "users": true,
         "voice_states": false
     }
 }
