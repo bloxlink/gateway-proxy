@@ -202,7 +202,7 @@ fn url_fallback() -> String {
     if let Ok(externally_accessible_url) = var("EXTERNAL_URL") {
         externally_accessible_url
     } else {
-        eprintln!("Config Error: externally_accessible_url is not present and EXTERNAL_URL environment variable is not set");
+        eprintln!("Config Error: externally_accessible_url is not present and URL environment variable is not set");
         exit(1);
     }
 }
