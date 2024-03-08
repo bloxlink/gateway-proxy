@@ -44,6 +44,7 @@ pub struct Config {
     pub validate_token: bool,
     #[serde(default)]
     pub twilight_http_proxy: Option<String>,
+    #[serde(default = "url_fallback")]
     pub externally_accessible_url: String,
     #[serde(default)]
     pub cache: Cache,
@@ -193,6 +194,15 @@ fn token_fallback() -> String {
         token
     } else {
         eprintln!("Config Error: token is not present and TOKEN environment variable is not set");
+        exit(1);
+    }
+}
+
+fn url_fallback() -> String {
+    if let Ok(externally_accessible_url) = var("EXTERNAL_URL") {
+        externally_accessible_url
+    } else {
+        eprintln!("Config Error: externally_accessible_url is not present and URL environment variable is not set");
         exit(1);
     }
 }
