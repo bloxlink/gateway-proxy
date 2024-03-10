@@ -71,7 +71,7 @@ impl Default for Cache {
             presences: false,
             current_member: true,
             emojis: false,
-            members: false,
+            members: true,
             roles: true,
             stage_instances: false,
             stickers: false,
