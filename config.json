@@ -8,7 +8,7 @@
     "status": "online",
     "activity": {
         "type": 0,
-        "name": "testing new infra"
+        "name": "SHOWCASE YOUR SERVER: https://blox.link/communities"
     },
     "cache": {
         "channels": true,
@@ -19,7 +19,7 @@
         "roles": true,
         "stage_instances": false,
         "stickers": false,
-        "users": true,
+        "users": false,
         "voice_states": false
     }
 }
