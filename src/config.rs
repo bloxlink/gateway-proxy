@@ -72,7 +72,7 @@ impl Default for Cache {
             presences: false,
             current_member: true,
             emojis: false,
-            members: false,
+            members: true,
             roles: true,
             scheduled_events: false,
             stage_instances: false,
