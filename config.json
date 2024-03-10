@@ -19,7 +19,7 @@
         "roles": true,
         "stage_instances": false,
         "stickers": false,
-        "users": false,
+        "users": true,
         "voice_states": false
     }
 }
