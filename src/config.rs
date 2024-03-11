@@ -227,7 +227,7 @@ fn default_shard_end() -> Option<u32> {
     if let Ok(shard_end_str) = var("SHARD_END") {
         shard_end_str.parse().ok()
     } else {
-        Some(0)
+        Some(1)
     }
 }
 

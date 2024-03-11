@@ -2,12 +2,15 @@ version: "3.5"
 
 services:
   gw-1:
-    build: .
+    build:
+      context: .
+      args:
+        TARGET_CPU: aarch64-unknown-linux-gnu
     container_name: gw-1
     restart: always
     environment:
       - TOKEN=
-      # - EXTERNAL_URL=
+      # - EXTERNAL_URL
       - SHARD_START=1
       - SHARD_END=1
       - SHARDS=2
