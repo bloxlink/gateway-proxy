@@ -28,11 +28,11 @@ pub struct Config {
     pub intents: Intents,
     #[serde(default = "default_port")]
     pub port: u16,
-    #[serde(default)]
+    #[serde(default = "default_shards")]
     pub shards: Option<u32>,
-    #[serde(default)]
+    #[serde(default = "default_shard_start")]
     pub shard_start: Option<u32>,
-    #[serde(default)]
+    #[serde(default = "default_shard_end")]
     pub shard_end: Option<u32>,
     #[serde(default)]
     pub activity: Option<Activity>,
@@ -204,6 +204,30 @@ fn url_fallback() -> String {
     } else {
         eprintln!("Config Error: externally_accessible_url is not present and EXTERNAL_URL environment variable is not set");
         exit(1);
+    }
+}
+
+fn default_shards() -> Option<u32> {
+    if let Ok(shards_str) = var("SHARDS") {
+        shards_str.parse().ok()
+    } else {
+        Some(1)
+    }
+}
+
+fn default_shard_start() -> Option<u32> {
+    if let Ok(shard_start_str) = var("SHARD_START") {
+        shard_start_str.parse().ok()
+    } else {
+        Some(0)
+    }
+}
+
+fn default_shard_end() -> Option<u32> {
+    if let Ok(shard_end_str) = var("SHARD_END") {
+        shard_end_str.parse().ok()
+    } else {
+        Some(0)
     }
 }
 
