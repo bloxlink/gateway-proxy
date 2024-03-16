@@ -98,11 +98,10 @@ async fn run() -> Result<(), Box<dyn Error + Send + Sync>> {
 
     // Create all shards
     let shard_start = CONFIG.shard_start.unwrap_or(0);
-    let shard_end = CONFIG.shard_end.unwrap_or(shard_count);
-    let shard_end_inclusive = shard_end - 1;
+    let shard_end = CONFIG.shard_end.unwrap_or(shard_count-1);
     let mut shards = Vec::with_capacity((shard_end - shard_start) as usize);
 
-    info!("Creating shards {shard_start} to {shard_end_inclusive} of {shard_count} total",);
+    info!("Creating shards {shard_start} to {shard_end} of {shard_count} total",);
 
     let config = ConfigBuilder::new(CONFIG.token.clone(), CONFIG.intents)
         .queue(queue)
