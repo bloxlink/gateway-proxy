@@ -1,6 +1,6 @@
 {
     "log_level": "info",
-    "intents": 33287,
+    "intents": 7,
     "shards": 864,
     "externally_accessible_url": "ws://localhost:7878",
     "port": 7878,
